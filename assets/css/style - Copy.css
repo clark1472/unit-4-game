@@ -1,0 +1,35 @@
+.crystals{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.crystal{
+    border: 1px solid green;
+    height: 200px;
+    width: 200px;
+}
+
+body {
+    background-image: url("../images/floralBackground.jpg");
+}
+
+.CollectorBox {
+    height: 90px;
+    width: 300px;
+    background-color: brown;
+    color:  white;
+    text-align: center;
+    line-height: 100px;
+    margin: 10px;
+}
+
+.instructions {
+    height: 250px;
+    width: 600px;
+    background-color: tan;
+    color:  green;
+    line-height: 20px;
+    padding: 20px;
+    margin: 10px;
+}

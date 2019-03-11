@@ -1,22 +1,22 @@
 
 var random_total;
-var lost=0;
-var win=0;
+var lost;
+var win;
 var crystalImage = [
 "assets/images/blue.png", 
 "assets/images/green.png", 
 "assets/images/yellow.png", 
 "assets/images/red.jpg"];
 var counter = 0;
+var targetNumber = 53;
 
 random_result = Math.floor(Math.random() * 100 ) + 19;
-$("#randomNumber").html(random_result);
 
 console.log(random_result);
 
 $("#result").html('Random Result: ');
 
-for(var i = 0; i < crystalImage.length; i++) {
+for(var i = 0; i < 4; i++) {
 
     var random = Math.floor(Math.random() * 12) + 1;
     console.log(random);
@@ -29,25 +29,31 @@ for(var i = 0; i < crystalImage.length; i++) {
    imageCrystal.addClass("crystal-image");
 
    // Each imageCrystal will be given a src link to the crystal image. using array above
-   imageCrystal.attr("src", crystalImage[i]);
+  imageCrystal.attr("src", crystalImage[i]);
 
    // Each imageCrystal will be given a data attribute called data-crystalValue.
-   // This data attribute will be set equal to a random value.
-
+   // This data attribute will be set equal to the array value.
+  // imageCrystal.attr("data-crystalvalue", numberOptions[i]);
    imageCrystal.attr("data-crystalvalue", random);
 
    // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
    $("#crystals").append(imageCrystal);
+
+////////////////////////////////////////////
+
+/*var crystal = $("<img>");
+crystal.attr({
+    "class": "crystal",
+    "data-random-nu": random
+    
+});
+var crystalTxt=crystalImage[i];
+crystal.append('<img id="crystal1" src=crystalTxt />');
+//('<img id="theImg" src="theImg.png" />')
+$(".crystals").append(crystal);*/
+    
 }
 
-var reset = function(){
-  counter = 0;
-  random_result = Math.floor(Math.random() * 100 ) + 19;
-  $("#randomNumber").html(random_result);
-  $("#numberTotal").html(counter);
-  $("#wins").html("Wins: " + win);
-  $("#lose").html("Loses: " + lost);
-}
 
 $(".crystal-image").on("click", function() {
 
@@ -57,27 +63,20 @@ $(".crystal-image").on("click", function() {
   // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
 
   var crystalValue = ($(this).attr("data-crystalvalue"));
-
   crystalValue = parseInt(crystalValue);
-  console.log(crystalValue)
   // We then add the crystalValue to the user's "counter" which is a global variable.
   // Every click, from every crystal adds to the global counter.
   counter += crystalValue;
 
   // All of the same game win-lose logic applies. So the rest remains unchanged.
-  
-  $("#numberTotal").html(counter);
+  alert("New score: " + counter);
 
-  if (counter === random_result) {
+  if (counter === targetNumber) {
     alert("You win!");
-    win++;
-    reset();
   }
 
-  else if (counter > random_result) {
+  else if (counter >= targetNumber) {
     alert("You lose!!");
-    lost++;
-    reset();
   }
 
 });
