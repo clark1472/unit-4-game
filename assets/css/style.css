@@ -1,16 +1,16 @@
-.crystals{
+.jewels{
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.crystal{
+.gem{
     border: 1px solid green;
     height: 200px;
     width: 200px;
 }
 
-.crystal-image{
+.gem-image{
     height: 200px;
     width: 200px;
     border: 5px solid black;

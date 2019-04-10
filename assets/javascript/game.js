@@ -2,7 +2,7 @@
 var random_total;
 var lost=0;
 var win=0;
-var crystalImage = [
+var gemImage = [
 "assets/images/blue.png", 
 "assets/images/green.png", 
 "assets/images/yellow.png", 
@@ -16,28 +16,26 @@ console.log(random_result);
 
 $("#result").html('Random Result: ');
 
-for(var i = 0; i < crystalImage.length; i++) {
+for(var i = 0; i < gemImage.length; i++) {
 
     var random = Math.floor(Math.random() * 12) + 1;
     console.log(random);
 
-   // For each iteration, we will create an imageCrystal
-   var imageCrystal = $("<img>");
+   // each pass through the loop, we will create a jewel
+   var imageJewel = $("<img>");
 
-   // First each crystal will be given the class ".crystal-image".
-   // This will allow the CSS to take effect.
-   imageCrystal.addClass("crystal-image");
 
-   // Each imageCrystal will be given a src link to the crystal image. using array above
-   imageCrystal.attr("src", crystalImage[i]);
+   //each jewel is given a class so css can use.
+   imageJewel.addClass("gem-image");
+   
+   //jewel will link to gem image in the array
+     imageJewel.attr("src", gemImage[i]);
 
-   // Each imageCrystal will be given a data attribute called data-crystalValue.
-   // This data attribute will be set equal to a random value.
+   // Each imageJewel will be given a data attribute called data-gemValue. It will be set to a random value.
+   imageJewel.attr("data-gemValue", random);
 
-   imageCrystal.attr("data-crystalvalue", random);
-
-   // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
-   $("#crystals").append(imageCrystal);
+   // Each jewel will get added to the page.
+   $("#jewels").append(imageJewel);
 }
 
 var reset = function(){
@@ -49,23 +47,18 @@ var reset = function(){
   $("#lose").html("Loses: " + lost);
 }
 
-$(".crystal-image").on("click", function() {
+$(".gem-image").on("click", function() {
 
-  // Determining the crystal's value requires us to extract the value from the data attribute.
-  // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
-  // Using the .attr("data-crystalvalue") allows us to grab the value out of the "data-crystalvalue" attribute.
-  // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
+  //clicking jewel returns the assigned value and adds value to counter.
+  var gemValue = ($(this).attr("data-gemValue"));
 
-  var crystalValue = ($(this).attr("data-crystalvalue"));
-
-  crystalValue = parseInt(crystalValue);
-  console.log(crystalValue)
-  // We then add the crystalValue to the user's "counter" which is a global variable.
-  // Every click, from every crystal adds to the global counter.
-  counter += crystalValue;
-
-  // All of the same game win-lose logic applies. So the rest remains unchanged.
+  gemValue = parseInt(gemValue);
+  console.log(gemValue)
   
+  // Any click, from any jewel adds to the counter.
+  counter += gemValue;
+
+  //update the display of counter and check to see if player wins or loses
   $("#numberTotal").html(counter);
 
   if (counter === random_result) {
@@ -81,10 +74,6 @@ $(".crystal-image").on("click", function() {
   }
 
 });
-
-
-
-
 
 
 //a game with 4 crystals 
