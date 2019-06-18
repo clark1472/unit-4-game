@@ -23,22 +23,24 @@ body {
 
 .CollectorBox {
     height: 100px;
-    width: 300px;
+    width: 1000px;
     background-color: brown;
     color:  white;
     text-align: center;
-    line-height: 100px;
+    line-height: 70px;
     margin: 10px;
+    padding: 20px;
 }
 
 .instructions {
-    height: 250px;
-    width: 600px;
+    height: 200px;
+    width: 1000px;
     background-color: tan;
     color:  green;
     line-height: 20px;
     padding: 20px;
     margin: 10px;
+    
 }
 
 #randomNumberWinLose {
