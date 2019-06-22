@@ -9,7 +9,12 @@ var gemImage = [
 "assets/images/red.jpg"];
 var counter = 0;
 
-random_result = Math.floor(Math.random() * 100 ) + 19;
+// rand function returns a random integer number between 0 and parameter "a".
+function rand(a) {
+  return Math.floor(Math.random() * a );
+}
+
+random_result = rand(100) + 19;
 $("#randomNumber").html(random_result);
 
 console.log(random_result);
@@ -18,7 +23,7 @@ $("#result").html('Random Result: ');
 
 for(var i = 0; i < gemImage.length; i++) {
 
-    var random = Math.floor(Math.random() * 12) + 1;
+    var random = rand(12) + 1;
     console.log(random);
 
    // each pass through the loop, we will create a jewel
@@ -40,7 +45,7 @@ for(var i = 0; i < gemImage.length; i++) {
 
 var reset = function(){
   counter = 0;
-  random_result = Math.floor(Math.random() * 100 ) + 19;
+  random_result = rand(100) + 19;
   $("#randomNumber").html(random_result);
   $("#numberTotal").html(counter);
   $("#wins").html("Wins: " + win);
