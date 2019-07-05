@@ -48,7 +48,7 @@ body {
     justify-content: space-around;
     align-items: left;
     height: 140px;
-    width: 640px;
+    width: 800px;
     margin: 10px;
 }
 
@@ -61,6 +61,7 @@ body {
     line-height: 100px;
     padding: 20px 50px;
     margin-right: 10px;
+    margin-left: 120px;
     text-align: center;
 }
 
@@ -72,7 +73,7 @@ body {
     color:  white;
     line-height: 20px;
     padding: 20px 50px;
-    margin-left: 10px;
+    margin-left: 200px;
 }
 
 #box {
@@ -81,7 +82,7 @@ body {
     background-color: brown;
     color:  white;
     text-align: center;
-    line-height: 100px;
+    line-height: 60px;
     margin: 10px;
 }
 
@@ -100,3 +101,11 @@ body {
     font-size: 50px;
 }
 
+.totalScoreBoxes {
+    display: flex;
+    justify-content: space-around;
+    align-items: left;
+    height: 140px;
+    width: 800px;
+    margin-left: 60px;
+}
